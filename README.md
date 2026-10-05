@@ -1,4 +1,4 @@
-# <Şirket Adı> — Grup E
+# <RetaillE> — Grup E
 
 VBA II (Veri Bilimi ve Analitik) dersi kapsamındaki **veri şirketi simülasyonu** çalışma deposu.
 
