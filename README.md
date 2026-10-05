@@ -6,7 +6,7 @@ VBA II (Veri Bilimi ve Analitik) dersi kapsamındaki **veri şirketi simülasyon
 
 | Alan | Değer |
 |---|---|
-| Şirket adı | <Hafta 1'de seçilecek> |
+| Şirket adı | RetailE |
 | Sektör | Perakende |
 | Teknoloji kararı | <dil + kütüphaneler, örn. "Python · pandas · matplotlib"> |
 
