@@ -19,7 +19,8 @@ Kendi satırınızı başlangıç rolünüzle ekleyin. Lider `PM`'dir; diğer ü
 - Emin Umut KILIÇ — PM (lider)
 - Yaşar COŞKUN — BE (başlangıç rolü)
 - Ad Soyad — FE (başlangıç rolü)
-- Sena ÇİFTÇİ  — DQ (başlangıç rolü, veri analisti ve kalite)
+- Sena ÇİFÇİ — DQ (başlangıç rolü, veri analisti ve kalite)
+
 
 ## Klasör Yapısı
 
