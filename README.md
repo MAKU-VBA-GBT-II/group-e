@@ -8,7 +8,7 @@ VBA II (Veri Bilimi ve Analitik) dersi kapsamındaki **veri şirketi simülasyon
 |---|---|
 | Şirket adı | RetailE |
 | Sektör | Perakende |
-| Teknoloji kararı | <dil + kütüphaneler, örn. "Python · pandas · matplotlib"> |
+| Teknoloji kararı | Python · Pandas · Faker · Matplotlib · Seaborn · Streamlit · FastAPI · Pydantic |
 
 > Teknoloji serbesttir; karar Hafta 1'de şirketçe verilip buraya yazılır.
 
