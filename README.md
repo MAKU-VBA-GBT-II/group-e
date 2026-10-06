@@ -17,9 +17,9 @@ VBA II (Veri Bilimi ve Analitik) dersi kapsamındaki **veri şirketi simülasyon
 Kendi satırınızı başlangıç rolünüzle ekleyin. Lider `PM`'dir; diğer üç üye PM'nin işe alımıyla başlangıç rollerine yerleştirilir. Roller Görev 1–3 boyunca dönem planı §1.3'e göre döner:
 
 - Emin Umut KILIÇ — PM (lider)
-- Yaşar COŞKUN — BE (başlangıç rolü)
+- Yaşar COŞKUN — BE (yasar07488)
 - Ad Soyad — FE (başlangıç rolü)
-- Sena ÇİFTÇİ  — DQ (başlangıç rolü, veri analisti ve kalite)
+- Sena ÇİFTÇİ  — DQ (senacifci5-prog)
 
 ## Klasör Yapısı
 
