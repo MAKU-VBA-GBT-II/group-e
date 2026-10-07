@@ -18,7 +18,7 @@ Kendi satırınızı başlangıç rolünüzle ekleyin. Lider `PM`'dir; diğer ü
 
 - Emin Umut KILIÇ — PM (Umutklcc)
 - Yaşar COŞKUN — BE (yasar07488)
-- Ad Soyad — FE (başlangıç rolü)
+- Burak Talha DEMİR — FE (buraktalhademir)
 - Sena ÇİFTÇİ  — DQ (senacifci5-prog)
 
 ## Klasör Yapısı
