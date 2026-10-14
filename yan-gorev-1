@@ -1,0 +1,16 @@
+# Yan Görev 1 – Açık Kaynak Repo Keşfi
+
+## Depo adı + bağlantı
+**pandas**  
+https://github.com/pandas-dev/pandas
+
+## Çözdüğü problem
+pandas, Python ile tablo biçimindeki verileri kolayca düzenlemek, temizlemek ve analiz etmek için geliştirilmiş açık kaynaklı bir kütüphanedir. CSV, Excel ve veritabanı gibi farklı kaynaklardan gelen verileri okuyup işleyerek veri analizi süreçlerini daha hızlı ve anlaşılır hale getirir.
+
+## Güçlü yanları
+- CSV, Excel ve veritabanı gibi birçok veri kaynağıyla çalışabilmesi.
+- Eksik verileri temizleme, filtreleme, sıralama ve dönüştürme işlemlerini kolaylaştırması.
+- Python ekosisteminde yaygın kullanılması ve kapsamlı dokümantasyona sahip olması.
+
+## Kendi projemizde kullanabileceğimiz bir fikir
+- Projemizde oluşturduğumuz CSV dosyalarını okumak, kontrol etmek ve özetlemek için pandas kullanabiliriz
