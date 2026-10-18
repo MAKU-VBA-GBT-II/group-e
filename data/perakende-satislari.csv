@@ -1,0 +1,151 @@
+﻿satis_id,tarih,urun,kategori,adet,birim_fiyat,toplam_tutar,magaza
+S0001,2026-03-13,Kulaklık,Elektronik,3,711.73,2135.19,Isparta Merkez
+S0002,2026-01-16,Şampuan,Kozmetik,5,177.19,885.95,Isparta Merkez
+S0003,2026-04-12,Pantolon,Giyim,5,612.24,3061.2,Konya Merkez
+S0004,2026-01-04,Mont,Giyim,5,1433.46,7167.3,Burdur Merkez
+S0005,2026-06-22,Havlu,Ev ve Yaşam,3,139.66,418.98,Isparta Merkez
+S0006,2026-06-26,Powerbank,Elektronik,1,1166.16,1166.16,Antalya Merkez
+S0007,2026-07-13,Powerbank,Elektronik,5,1109.96,5549.8,Isparta Merkez
+S0008,2026-07-05,Krem,Kozmetik,5,269.27,1346.35,Burdur Merkez
+S0009,2026-02-10,Kulaklık,Elektronik,2,790.96,1581.92,Burdur Merkez
+S0010,2026-07-06,Powerbank,Elektronik,3,1188.82,3566.46,Burdur Merkez
+S0011,2026-02-06,Makarna,Gıda,2,41.36,82.72,Burdur Merkez
+S0012,2026-05-19,Parfüm,Kozmetik,2,893.21,1786.42,Burdur Merkez
+S0013,2026-06-11,Kahve,Gıda,2,191.58,383.16,Konya Merkez
+S0014,2026-06-11,Kahve,Gıda,2,194.87,389.74,Burdur Merkez
+S0015,2026-03-13,Bardak Seti,Ev ve Yaşam,4,278.57,1114.28,Burdur Merkez
+S0016,2026-07-24,Krem,Kozmetik,5,246.42,1232.1,Antalya Merkez
+S0017,2026-01-25,Pantolon,Giyim,5,599.22,2996.1,Isparta Merkez
+S0018,2026-07-17,Pantolon,Giyim,4,611.57,2446.28,Konya Merkez
+S0019,2026-01-06,Deodorant,Kozmetik,5,133.04,665.2,Isparta Merkez
+S0020,2026-08-11,Krem,Kozmetik,3,230.58,691.74,Burdur Merkez
+S0021,2026-04-02,Masa Lambası,Ev ve Yaşam,3,437.75,1313.25,Isparta Merkez
+S0022,2026-03-24,Çikolata,Gıda,2,58.49,116.98,Isparta Merkez
+S0023,2026-07-05,Krem,Kozmetik,4,225.97,903.88,Antalya Merkez
+S0024,2026-02-10,Tişört,Giyim,2,268.9,537.8,Isparta Merkez
+S0025,2026-03-07,Masa Lambası,Ev ve Yaşam,5,421.27,2106.35,Konya Merkez
+S0026,2026-08-05,Parfüm,Kozmetik,3,904.98,2714.94,Burdur Merkez
+S0027,2026-07-11,Parfüm,Kozmetik,3,881.82,2645.46,Konya Merkez
+S0028,2026-02-02,Deodorant,Kozmetik,1,132.94,132.94,Antalya Merkez
+S0029,2026-02-06,Klavye,Elektronik,5,849.64,4248.2,Isparta Merkez
+S0030,2026-02-06,Tişört,Giyim,1,267.98,267.98,Burdur Merkez
+S0031,2026-08-31,Süt,Gıda,2,35.27,70.54,Burdur Merkez
+S0032,2026-08-09,Bardak Seti,Ev ve Yaşam,2,275.66,551.32,Antalya Merkez
+S0033,2026-01-28,Bardak Seti,Ev ve Yaşam,4,321.83,1287.32,Isparta Merkez
+S0034,2026-02-25,Powerbank,Elektronik,3,1272.14,3816.42,Burdur Merkez
+S0035,2026-08-05,Pantolon,Giyim,5,593.83,2969.15,Burdur Merkez
+S0036,2026-02-08,Süt,Gıda,2,37.62,75.24,Konya Merkez
+S0037,2026-01-08,Şampuan,Kozmetik,1,185.48,185.48,Isparta Merkez
+S0038,2026-04-20,Pantolon,Giyim,4,598.28,2393.12,Konya Merkez
+S0039,2026-07-19,Klavye,Elektronik,4,810.39,3241.56,Antalya Merkez
+S0040,2026-09-07,Havlu,Ev ve Yaşam,4,155.9,623.6,Burdur Merkez
+S0041,2026-02-01,Gömlek,Giyim,2,492.18,984.36,Antalya Merkez
+S0042,2026-03-22,Kulaklık,Elektronik,5,746.52,3732.6,Isparta Merkez
+S0043,2026-02-04,Şampuan,Kozmetik,2,164.47,328.94,Burdur Merkez
+S0044,2026-01-21,Masa Lambası,Ev ve Yaşam,5,379.7,1898.5,Isparta Merkez
+S0045,2026-06-10,Havlu,Ev ve Yaşam,3,141.13,423.39,Burdur Merkez
+S0046,2026-06-03,Süt,Gıda,2,36.2,72.4,Konya Merkez
+S0047,2026-02-21,Kahve,Gıda,1,178.5,178.5,Isparta Merkez
+S0048,2026-06-28,Parfüm,Kozmetik,5,857.74,4288.7,Isparta Merkez
+S0049,2026-06-04,Gömlek,Giyim,3,419.2,1257.6,Isparta Merkez
+S0050,2026-03-10,Krem,Kozmetik,1,271.95,271.95,Antalya Merkez
+S0051,2026-05-25,Kulaklık,Elektronik,5,698.32,3491.6,Burdur Merkez
+S0052,2026-05-09,Çikolata,Gıda,3,60.06,180.18,Isparta Merkez
+S0053,2026-06-20,Powerbank,Elektronik,3,1090.58,3271.74,Burdur Merkez
+S0054,2026-08-07,Çikolata,Gıda,4,60.62,242.48,Isparta Merkez
+S0055,2026-07-09,Kulaklık,Elektronik,2,756.84,1513.68,Burdur Merkez
+S0056,2026-01-21,Yastık,Ev ve Yaşam,1,240.41,240.41,Antalya Merkez
+S0057,2026-07-28,Pantolon,Giyim,1,582.44,582.44,Burdur Merkez
+S0058,2026-01-13,Pantolon,Giyim,2,645.77,1291.54,Burdur Merkez
+S0059,2026-02-25,Süt,Gıda,2,33.37,66.74,Konya Merkez
+S0060,2026-08-24,Powerbank,Elektronik,2,1127.9,2255.8,Antalya Merkez
+S0061,2026-04-09,Çikolata,Gıda,2,54.28,108.56,Konya Merkez
+S0062,2026-05-23,Makarna,Gıda,1,43.74,43.74,Antalya Merkez
+S0063,2026-01-15,Deodorant,Kozmetik,5,135.27,676.35,Isparta Merkez
+S0064,2026-05-16,Çikolata,Gıda,5,65.55,327.75,Isparta Merkez
+S0065,2026-06-10,Powerbank,Elektronik,3,1254.85,3764.55,Konya Merkez
+S0066,2026-04-08,Şampuan,Kozmetik,4,194.38,777.52,Antalya Merkez
+S0067,2026-04-11,Powerbank,Elektronik,1,1204.78,1204.78,Antalya Merkez
+S0068,2026-03-05,Masa Lambası,Ev ve Yaşam,3,409.85,1229.55,Antalya Merkez
+S0069,2026-06-01,Krem,Kozmetik,4,241.31,965.24,Burdur Merkez
+S0070,2026-03-31,Mont,Giyim,4,1553.2,6212.8,Antalya Merkez
+S0071,2026-08-09,Masa Lambası,Ev ve Yaşam,3,382.95,1148.85,Antalya Merkez
+S0072,2026-09-19,Bardak Seti,Ev ve Yaşam,4,310.54,1242.16,Konya Merkez
+S0073,2026-06-21,Tişört,Giyim,3,250.77,752.31,Isparta Merkez
+S0074,2026-03-17,Gömlek,Giyim,2,477.59,955.18,Isparta Merkez
+S0075,2026-02-07,Klavye,Elektronik,4,920.03,3680.12,Konya Merkez
+S0076,2026-05-05,Yastık,Ev ve Yaşam,4,249.72,998.88,Burdur Merkez
+S0077,2026-09-23,Kulaklık,Elektronik,4,707.83,2831.32,Konya Merkez
+S0078,2026-08-26,Klavye,Elektronik,1,892.16,892.16,Antalya Merkez
+S0079,2026-03-23,Bardak Seti,Ev ve Yaşam,5,296.75,1483.75,Konya Merkez
+S0080,2026-05-22,Havlu,Ev ve Yaşam,2,160.2,320.4,Konya Merkez
+S0081,2026-05-27,Gömlek,Giyim,4,411.97,1647.88,Burdur Merkez
+S0082,2026-02-11,Makarna,Gıda,3,43.14,129.42,Burdur Merkez
+S0083,2026-04-20,Pantolon,Giyim,4,623.27,2493.08,Isparta Merkez
+S0084,2026-08-01,Bardak Seti,Ev ve Yaşam,3,302.56,907.68,Isparta Merkez
+S0085,2026-01-11,Mont,Giyim,4,1621.45,6485.8,Konya Merkez
+S0086,2026-07-19,Masa Lambası,Ev ve Yaşam,3,383.89,1151.67,Konya Merkez
+S0087,2026-08-12,Parfüm,Kozmetik,4,849.5,3398.0,Konya Merkez
+S0088,2026-07-27,Powerbank,Elektronik,3,1240.53,3721.59,Burdur Merkez
+S0089,2026-07-21,Yastık,Ev ve Yaşam,5,251.71,1258.55,Isparta Merkez
+S0090,2026-04-04,Powerbank,Elektronik,2,1288.04,2576.08,Isparta Merkez
+S0091,2026-06-17,Süt,Gıda,3,32.98,98.94,Antalya Merkez
+S0092,2026-02-11,Havlu,Ev ve Yaşam,4,142.57,570.28,Konya Merkez
+S0093,2026-02-05,Kulaklık,Elektronik,3,708.63,2125.89,Isparta Merkez
+S0094,2026-03-20,Klavye,Elektronik,2,961.06,1922.12,Burdur Merkez
+S0095,2026-04-22,Mont,Giyim,1,1519.19,1519.19,Konya Merkez
+S0096,2026-02-28,Makarna,Gıda,2,40.85,81.7,Burdur Merkez
+S0097,2026-06-09,Kahve,Gıda,5,162.92,814.6,Konya Merkez
+S0098,2026-05-05,Yastık,Ev ve Yaşam,1,254.6,254.6,Isparta Merkez
+S0099,2026-06-27,Kahve,Gıda,5,190.17,950.85,Konya Merkez
+S0100,2026-01-07,Kahve,Gıda,5,185.31,926.55,Konya Merkez
+S0101,2026-08-24,Masa Lambası,Ev ve Yaşam,4,436.86,1747.44,Burdur Merkez
+S0102,2026-05-19,Yastık,Ev ve Yaşam,5,273.27,1366.35,Konya Merkez
+S0103,2026-05-06,Bardak Seti,Ev ve Yaşam,5,286.1,1430.5,Isparta Merkez
+S0104,2026-07-14,Süt,Gıda,2,36.75,73.5,Antalya Merkez
+S0105,2026-04-19,Powerbank,Elektronik,3,1123.64,3370.92,Antalya Merkez
+S0106,2026-05-22,Makarna,Gıda,3,43.04,129.12,Isparta Merkez
+S0107,2026-07-28,Parfüm,Kozmetik,1,853.44,853.44,Konya Merkez
+S0108,2026-09-09,Parfüm,Kozmetik,4,926.26,3705.04,Konya Merkez
+S0109,2026-05-05,Kulaklık,Elektronik,3,708.24,2124.72,Antalya Merkez
+S0110,2026-06-26,Krem,Kozmetik,4,252.67,1010.68,Konya Merkez
+S0111,2026-05-19,Krem,Kozmetik,3,260.14,780.42,Antalya Merkez
+S0112,2026-06-11,Çikolata,Gıda,1,62.66,62.66,Isparta Merkez
+S0113,2026-09-05,Parfüm,Kozmetik,2,848.95,1697.9,Antalya Merkez
+S0114,2026-06-01,Krem,Kozmetik,1,266.63,266.63,Burdur Merkez
+S0115,2026-03-06,Çikolata,Gıda,3,54.17,162.51,Antalya Merkez
+S0116,2026-03-06,Kulaklık,Elektronik,5,718.82,3594.1,Konya Merkez
+S0117,2026-09-03,Kulaklık,Elektronik,5,717.65,3588.25,Konya Merkez
+S0118,2026-09-02,Çikolata,Gıda,1,57.03,57.03,Isparta Merkez
+S0119,2026-01-28,Powerbank,Elektronik,4,1097.78,4391.12,Burdur Merkez
+S0120,2026-03-02,Gömlek,Giyim,1,494.45,494.45,Konya Merkez
+S0121,2026-08-15,Parfüm,Kozmetik,5,878.47,4392.35,Antalya Merkez
+S0122,2026-01-31,Deodorant,Kozmetik,3,141.92,425.76,Isparta Merkez
+S0123,2026-03-22,Pantolon,Giyim,3,619.25,1857.75,Burdur Merkez
+S0124,2026-08-19,Tişört,Giyim,2,225.13,450.26,Konya Merkez
+S0125,2026-05-25,Kahve,Gıda,2,172.37,344.74,Konya Merkez
+S0126,2026-04-12,Klavye,Elektronik,3,951.81,2855.43,Konya Merkez
+S0127,2026-03-14,Klavye,Elektronik,2,973.51,1947.02,Isparta Merkez
+S0128,2026-05-28,Klavye,Elektronik,3,917.11,2751.33,Konya Merkez
+S0129,2026-05-20,Powerbank,Elektronik,3,1247.94,3743.82,Konya Merkez
+S0130,2026-08-10,Masa Lambası,Ev ve Yaşam,5,363.19,1815.95,Antalya Merkez
+S0131,2026-01-11,Krem,Kozmetik,1,229.57,229.57,Antalya Merkez
+S0132,2026-08-15,Şampuan,Kozmetik,2,178.94,357.88,Antalya Merkez
+S0133,2026-08-29,Mont,Giyim,4,1640.72,6562.88,Antalya Merkez
+S0134,2026-03-24,Havlu,Ev ve Yaşam,3,155.1,465.3,Antalya Merkez
+S0135,2026-07-25,Bardak Seti,Ev ve Yaşam,3,309.76,929.28,Isparta Merkez
+S0136,2026-03-01,Masa Lambası,Ev ve Yaşam,3,380.19,1140.57,Konya Merkez
+S0137,2026-01-28,Şampuan,Kozmetik,5,178.63,893.15,Burdur Merkez
+S0138,2026-08-15,Krem,Kozmetik,5,262.82,1314.1,Isparta Merkez
+S0139,2026-05-28,Gömlek,Giyim,5,416.79,2083.95,Konya Merkez
+S0140,2026-05-03,Masa Lambası,Ev ve Yaşam,1,437.85,437.85,Burdur Merkez
+S0141,2026-04-26,Kahve,Gıda,5,176.69,883.45,Isparta Merkez
+S0142,2026-05-30,Masa Lambası,Ev ve Yaşam,2,399.87,799.74,Antalya Merkez
+S0143,2026-03-16,Bardak Seti,Ev ve Yaşam,4,284.62,1138.48,Konya Merkez
+S0144,2026-08-01,Pantolon,Giyim,1,573.15,573.15,Antalya Merkez
+S0145,2026-06-02,Krem,Kozmetik,1,239.14,239.14,Konya Merkez
+S0146,2026-06-20,Mont,Giyim,5,1495.3,7476.5,Konya Merkez
+S0147,2026-05-03,Havlu,Ev ve Yaşam,2,164.42,328.84,Konya Merkez
+S0148,2026-08-31,Mont,Giyim,1,1445.45,1445.45,Konya Merkez
+S0149,2026-03-06,Yastık,Ev ve Yaşam,4,273.24,1092.96,Antalya Merkez
+S0150,2026-08-22,Powerbank,Elektronik,1,1206.23,1206.23,Isparta Merkez
