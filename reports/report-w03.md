@@ -28,8 +28,8 @@
 ## 3. Kim Ne Yaptı? (Devir Teslim Zinciri Takibi)
 - **PM (Umut Kılıç):** Sprint planlaması, issue yönetimi, AGENTS.md ve başlangıç sprint raporunu hazırladı.
 - **BE (Yaşar Coşkun):** Veri üretim betiği ve veri sözlüğü üzerinde çalışıyor.
-- **DQ (Burak Talha Demir):** BE'nin veri teslimini bekliyor; test senaryoları hazırlığına başladı.
-- **FE (Sena Çiftçi):** Grafik taslak hazırlığı aşamasında.
+- **FE (Burak Talha Demir):** Grafik taslak hazırlığı aşamasında.
+- **DQ (Sena Çiftçi):** BE'nin veri teslimini bekliyor; test senaryoları hazırlığına başladı.
 
 ---
 
