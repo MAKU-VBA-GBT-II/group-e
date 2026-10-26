@@ -1,16 +1,19 @@
-# Skill: DQ - Veri Analizi
+# Skill: dq-analiz (Veri Analizi)
 
-## Açıklama
-Bu skill, perakende verisini okuyarak proje için genel durum analizi raporu üretir.
-
-## Girdi Dosyaları
-- `data/perakende-satislari.csv`
-
-## Çıktı Dosyaları
-- `docs/analiz-g1.md`
+**Görevi:** Nihai veri seti üzerinde istatistiksel metrikleri hesaplamak ve sonuçları analiz dosyasına yazmak.
 
 ## Adım Adım Talimatlar
-1. Girdi CSV dosyasını oku.
-2. 5 metrik hesapla (Toplam, Ortalama, 2 Kırılım, Top-3).
-3. Sonuçları analiz dosyasına yaz.
-Çalıştırma Komutu: python src/analiz_g1.py
+1. **Veri Okuma:** `data/perakende-satislari.csv` dosyasını pandas kütüphanesi kullanarak oku.
+2. **Metrik Hesaplama:** Veri seti üzerinden şu 5 temel metriği hesapla:
+   - Toplam satış tutarı
+   - Ortalama sipariş miktarı
+   - 2 farklı kategorik kırılım (örneğin: bölgeye veya kategoriye göre)
+   - Top-3 listesi
+3. **Raporlama:** Elde edilen sonuçları anlaşılır bir formatta analiz çıktısı olarak yazdır.
+
+## Kullanılan Dosyalar
+- **Girdi:** `data/perakende-satislari.csv`
+- **İlgili Betik:** `src/analiz_g1.py`
+
+## Çalıştırma Komutu
+`python src/analiz_g1.py`
