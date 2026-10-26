@@ -1,9 +1,7 @@
-# Hafta 3: Sentetik Veri Test Senaryoları
+# Test Senaryoları
 
-| No | Kriter | Test Senaryosu | Beklenen Sonuç | Gerçekleşen Sonuç | Durum |
-|---|---|---|---|---|---|
-| TC-01 | Dosya | CSV dosyasının var olup olmadığını kontrol et. | `data/perakende-satislari.csv` mevcut olmalı. | | Beklemede |
-| TC-02 | Satır Sayısı | Veri setinin satır sayısını say. | Satır sayısı en az 100 olmalı. | | Beklemede |
-| TC-03 | Sütunlar | Veri sözlüğündeki zorunlu alanları kontrol et. | Belirlenen sütun başlıkları bulunmalı. | | Beklemede |
-| TC-04 | Veri Tipleri | Fiyat alanının tipini kontrol et. | Fiyat > 0 ve sayısal olmalı. | | Beklemede |
-| TC-05 | Kategori Değerleri | Kategori çeşitliliğini kontrol et. | Kategorik alanda en az 4 farklı değer olmalı. | | Beklemede |
+| Test ID | Senaryo | Girdi | Adımlar | Beklenen Sonuç |
+|---|---|---|---|---|
+| TC-01 | Analiz betiğinin çalıştırılması | `python src/analiz_g1.py` | 1. Terminali aç 2. Komutu çalıştır | Betiğin hatasız çalışması ve metrikleri ekrana yazdırması |
+| TC-02 | CSV verisinin okunması | `data/perakende-satislari.csv` | 1. Veri yolunu kontrol et 2. Betiği çalıştır | Dosyanın okunması ve hata vermemesi |
+| TC-03 | Toplam satış tutarının doğruluğu | CSV `toplam_tutar` sütunu | 1. Veriyi topla 2. Çıktıyı kontrol et | Toplam satışın 239.182,23 TL olarak görünmesi |ss

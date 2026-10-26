@@ -13,3 +13,4 @@ Bu skill, perakende verisini okuyarak proje için genel durum analizi raporu ür
 1. Girdi CSV dosyasını oku.
 2. 5 metrik hesapla (Toplam, Ortalama, 2 Kırılım, Top-3).
 3. Sonuçları analiz dosyasına yaz.
+Çalıştırma Komutu: python src/analiz_g1.py
