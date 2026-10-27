@@ -1,104 +1,56 @@
-\# BE Veri Üretici Skill
+# BE Veri Üretici Skill
 
-
-
-\## Amaç
-
-
+## Amaç
 
 Bu skill, RetailE projesi için tekrarlanabilir sentetik perakende satış verisi üretmek amacıyla hazırlanmıştır.
 
-
-
-\## Görev
-
-
+## Görev
 
 Veri üretim ajanı aşağıdaki işlemleri gerçekleştirir:
 
+1. `src/veri_uretici.py` betiğini çalıştırır.
+2. Sentetik perakende satış verilerini üretir.
+3. Üretilen verileri `data/perakende-satislari.csv` dosyasına kaydeder.
+4. Veri setinin gerekli koşulları sağladığını kontrol eder.
+5. Veri yapısının `docs/veri-sozlugu-g1.md` dosyasında açıklanan şema ile uyumlu olmasını sağlar.
 
-
-1\. `src/veri\_uretici.py` betiğini çalıştırır.
-
-2\. Sentetik perakende satış verilerini üretir.
-
-3\. Üretilen verileri `data/perakende-satislari.csv` dosyasına kaydeder.
-
-4\. Veri setinin gerekli koşulları sağladığını kontrol eder.
-
-5\. Veri yapısının `docs/veri-sozlugu-g1.md` dosyasında açıklanan şema ile uyumlu olmasını sağlar.
-
-
-
-\## Veri Üretim Kuralları
-
-
+## Veri Üretim Kuralları
 
 Üretilen veri seti:
 
-
-
-\- En az 100 kayıt içermelidir.
-
-\- En az 6 alan içermelidir.
-
-\- Ana kategori alanında en az 4 farklı değer bulunmalıdır.
-
-\- Sentetik veriler gerçek kişi veya gerçek satış bilgileri içermemelidir.
-
-\- Veri üretimi tekrarlanabilir olmalıdır.
-
-\- Sabit seed değeri kullanılmalıdır.
-
-
+- En az 100 kayıt içermelidir.
+- En az 6 alan içermelidir.
+- Ana kategori alanında en az 4 farklı değer bulunmalıdır.
+- Sentetik veriler gerçek kişi veya gerçek satış bilgileri içermemelidir.
+- Veri üretimi tekrarlanabilir olmalıdır.
+- Sabit seed değeri kullanılmalıdır.
+- `adet` değeri 1–5 arasında olmalıdır.
+- Birim fiyat TL cinsindedir ve ürünün temel fiyatının %90–%110 aralığında üretilir.
+- Tarih, 2026-01-01 başlangıcından itibaren 0–270 gün aralığında üretilir.
+- `toplam_tutar`, `adet × birim_fiyat` formülüyle hesaplanır ve TL cinsindedir.
 
 Bu projede sabit seed değeri `42` olarak belirlenmiştir.
 
-
-
-\## Çıktı
-
-
+## Çıktı
 
 Veri üretim betiğinin oluşturduğu dosya:
 
-
-
 `data/perakende-satislari.csv`
-
-
 
 Mevcut veri seti 150 satış kaydı, 8 alan ve 5 farklı ana kategori içermektedir.
 
+## Veri Sözlüğü
 
-
-\## Veri Sözlüğü
-
-
-
-Veri setindeki alanların açıklamaları ve veri tipleri aşağıdaki dosyada bulunmaktadır:
-
-
+Veri setindeki alanların açıklamaları, veri tipleri, aralıkları ve birimleri aşağıdaki dosyada bulunmaktadır:
 
 `docs/veri-sozlugu-g1.md`
 
-
-
-\## Çalıştırma
-
-
+## Çalıştırma
 
 Veri üretim betiği proje ana klasöründen aşağıdaki komutla çalıştırılır:
 
-
-
-`python src/veri\_uretici.py`
-
-
+`python src/veri_uretici.py`
 
 Betik başarılı şekilde çalıştığında `data/perakende-satislari.csv` dosyası yeniden oluşturulur.
 
-
-
 `random.seed(42)` kullanıldığı için betik her çalıştırıldığında aynı sentetik veri seti üretilebilir.
-
