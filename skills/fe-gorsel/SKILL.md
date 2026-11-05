@@ -139,6 +139,24 @@ Gerekli paketler: `pandas` ve `matplotlib`.
 
 Betik başarılı çalıştığında iki PNG de yeniden oluşturulur.
 
+## G2 grafik seti (ek)
+
+Görev 2 (G2-gorsel) kapsamında 3 grafiklik bir set üretilir. Bu set G1
+verisi (`data/perakende-satislari.csv`) üzerinde çalışır; G2 verisi (issue #25
+şeması, #26 üretimi) hazır olduğunda girdi dosyası ve sütun adları
+güncellenecektir.
+
+| Grafik | Betik | Çıktı |
+| --- | --- | --- |
+| Zaman serisi | `src/gorsellestirme_g2.py` → `zaman_serisi_grafigi` | `visuals/g2-zaman-serisi.png` |
+| Kategori kırılımı | `src/gorsellestirme_g2.py` → `kategori_kirilimi_grafigi` | `visuals/g2-kategori-kirilimi.png` |
+| Dağılım (histogram) | `src/gorsellestirme_g2.py` → `dagilim_grafigi` | `visuals/g2-dagilim.png` |
+
+Çalıştırma: `python src/gorsellestirme_g2.py`
+
+Tasarım referansı (dijital taslak/mockup): `docs/g2-taslak.png`
+(üretici: `src/taslak_g2.py`).
+
 ## Çıktıların ve hataların kontrolü
 
 Betiğin çalıştırılmasından sonra ajan şu kontrolleri yapar:
