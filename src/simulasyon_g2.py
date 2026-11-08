@@ -3,6 +3,7 @@ RetailE - Görev 2 Perakende Satış Simülasyon Betiği
 G2 şemasına ve DQ kurallarına tam uyumlu sentetik veri üretici.
 """
 
+import argparse
 from pathlib import Path
 import random
 import pandas as pd
@@ -70,10 +71,10 @@ URUN_KATALOGU = {
 MAGAZALAR = ["Burdur", "Antalya", "Isparta", "Konya Merkez"]
 
 
-def veri_uret(kayit_sayisi: int = 150, seed: int = 42) -> pd.DataFrame:
+def veri_uret(kayit_sayisi: int = 150, baslangic_tarihi: str = "2026-01-01", seed: int = 42) -> pd.DataFrame:
     random.seed(seed)
     tarihler = pd.date_range(
-        start="2026-01-01", end="2026-03-31", periods=kayit_sayisi
+        start=baslangic_tarihi, periods=kayit_sayisi, freq="D"
     )
 
     kayitlar = []
@@ -105,10 +106,20 @@ def veri_uret(kayit_sayisi: int = 150, seed: int = 42) -> pd.DataFrame:
 
 
 def main():
+    parser = argparse.ArgumentParser(description="G2 Perakende Satış Simülasyonu")
+    parser.add_argument("--kayit-sayisi", type=int, default=150, help="Üretilecek kayıt sayısı")
+    parser.add_argument("--baslangic-tarihi", type=str, default="2026-01-01", help="Başlangıç tarihi (YYYY-MM-DD)")
+    parser.add_argument("--seed", type=int, default=42, help="Rastgelelik için seed değeri")
+    parser.add_argument("--cikti", type=str, default=str(OUTPUT_FILE), help="Çıktı dosya yolu")
+    
+    args = parser.parse_args()
+
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    df = veri_uret(kayit_sayisi=150, seed=42)
-    df.to_csv(OUTPUT_FILE, index=False, lineterminator="\n")
-    print(f"Başarılı: {len(df)} kayıt üretildi -> {OUTPUT_FILE}")
+    df = veri_uret(kayit_sayisi=args.kayit_sayisi, baslangic_tarihi=args.baslangic_tarihi, seed=args.seed)
+    
+    cikti_yolu = Path(args.cikti)
+    df.to_csv(cikti_yolu, index=False, lineterminator="\n")
+    print(f"Başarılı: {len(df)} kayıt üretildi -> {cikti_yolu}")
 
 
 if __name__ == "__main__":
