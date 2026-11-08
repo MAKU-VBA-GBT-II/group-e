@@ -6,11 +6,13 @@
 - Kaynak: `data/perakende-satislari-g2.csv` (GitHub `main` dalındaki sürüm)
 - Kaynak CSV blob SHA: `924d744b35ed1cd97ca8dfc0bd4a7636a23e0df0`
 - Kayıt sayısı: **150**, alan sayısı: **8**
-- Tarih aralığı: **2026-01-01 – 2026-03-31**
+- Tarih aralığı (mevcut CSV'de doğrulandı): **2026-01-01 – 2026-03-31**
 - Veri sözlüğü: `docs/veri-sozlugu.md`
 - Hesaplama: CSV'deki `toplam_tutar` değerleri toplandı; ortalama işlem tutarı toplam gelirin satır sayısına bölünmesiyle hesaplandı. Her satır bir satış işlemi sayıldı.
 - Veri kontrolü: satış kimlikleri benzersiz; satır tutarları `adet × birim_fiyat` hesabıyla uyumlu (0,01 TL tolerans).
-- Not: Bu rapor mevcut CSV'nin analizidir; simülasyon betiğinin tüm parametre ve tekrarlanabilirlik testleri ayrıca #29 kapsamında tamamlanmalıdır.
+- **Yeniden üretilebilirlik uyarısı (8 Kasım 2026):** Bu rapor GitHub `main` dalındaki, blob SHA'sı yukarıda belirtilen **mevcut CSV sürümünün** analizidir. CSV'de 150 kayıt, 90 farklı tarih ve **2026-01-01–2026-03-31** aralığı doğrulandı. Buna karşılık `src/simulasyon_g2.py` içindeki `pd.date_range(start=baslangic_tarihi, periods=kayit_sayisi, freq="D")` ifadesi varsayılan 150 kayıt için **2026-01-01–2026-05-30** tarihlerini üretir. Bu nedenle mevcut betik, rapordaki CSV'nin tarih dağılımını birebir yeniden üretmez. BE ekibinin tarih üretim kuralını ve CSV üretim sürecini eşitlemesi gerekir; CSV yeniden oluşturulursa blob SHA ve tüm analiz metrikleri tekrar doğrulanmalıdır.
+- **SHA kontrolü:** `924d744b35ed1cd97ca8dfc0bd4a7636a23e0df0` değeri 8 Kasım 2026 tarihinde `main` dalındaki `data/perakende-satislari-g2.csv` dosyasının Git blob SHA değeriyle eşleşti. Bu bir CSV içerik sürümü referansıdır; dosya değişirse değişebilir.
+- **Test kapsamı:** #29 kapsamında kullanıcının bildirdiği Python fonksiyonu, farklı kayıt sayısı/seed ve CSV tekrarlanabilirlik testleri kaydedildi; bu testler mevcut CSV ile güncel betiğin **birebir aynı dosyayı ürettiğini kanıtlamaz**.
 
 ## Beş metrik
 
@@ -57,7 +59,8 @@ Kategori ve mağaza gelirlerinin yanında **işlem sayısı, satılan adet ve or
 - [x] Beş metrik G2 CSV üzerinden hesaplandı
 - [x] Kategori ve mağaza kırılımları raporlandı
 - [x] Üç bulgu ve uygulanabilir eylem önerisi yazıldı
-- [ ] #29 kapsamındaki simülasyon parametre testleri ve BE PR inceleme yorumları tamamlanacak
-- [ ] PR #34 için birleştirme/çatışma kontrolü yapılacak
+- [x] #29 kapsamındaki kullanıcı tarafından bildirilen simülasyon/CSV testleri ve BE PR inceleme yorumları kaydedildi
+- [x] PR #34 `main` dalına birleştirildi (merge commit: `ad381688ee85d54940b5e17c7b947a1212909666`)
+- [ ] BE: Güncel simülasyon betiğinin tarih üretim kuralı ile mevcut CSV'nin 90 günlük tarih aralığı eşitlenecek; ardından CSV SHA ve metrikler yeniden doğrulanacak
 
 İlgili görevler: #27 (analiz), #25 (şema), #29 (test).
