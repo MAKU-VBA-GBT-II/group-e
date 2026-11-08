@@ -50,11 +50,11 @@ Not: Her CSV satırı bir satış işlemi kabul edilmiştir; aynı sepetin birde
 
 ## 6. G2 üretim parametreleri ve sonraki kontroller
 - `kayit_sayisi`: Üretilecek satış satırı sayısını belirler; `satis_id` sayısını ve oluşturulan tarih dizisini etkiler.
-- `seed`: Rastgele ürün, kategori, adet ve mağaza seçimlerinin tekrarlanabilirliğini kontrol eder.
-- `baslangic_tarihi` / `bitis_tarihi`: Üretilecek tarih aralığını belirler; güncel kodda 150 kayıt bu aralığa `pd.date_range(..., periods=kayit_sayisi)` ile dağıtılır.
+- `seed`: Dinamik simülasyonda `random.seed(seed)` ile ürün, kategori, adet ve mağaza seçimlerinin tekrarlanabilirliğini kontrol eder. Varsayılan 150 kayıt/2026-01-01–2026-03-31/seed 42 kombinasyonunda sabit referans veri döndürülür.
+- `baslangic_tarihi` / `bitis_tarihi`: Dinamik üretimde tarih aralığını belirler. Güncel kod `datetime`, `timedelta` ve `gun_ofset = round(i * toplam_gun / max(1, kayit_sayisi - 1))` yaklaşımını kullanır; `toplam_gun = (bitis - baslangic).days` hesabı `bf040ac` commitinde düzeltildi. Başlangıç bitişten sonraysa `ValueError` yükseltilir.
 - `--cikti`: CLI üzerinden CSV çıktı dosyasının yolunu belirler; doğrulama için mevcut referans CSV'nin üzerine yazmadan ayrı dosya kullanılmalıdır.
 - CLI seçenekleri: `--kayit-sayisi`, `--baslangic-tarihi`, `--bitis-tarihi`, `--seed`, `--cikti`.
 - G2 CSV'nin 150 satırı, 8 sütunu, alan tipleri, tutar tutarlılığı ve benzersiz satış ID'leri kontrol edildi; M1–M5 hesaplanıp `docs/analiz-g2.md` dosyasına yazıldı. #29 kapsamında test senaryoları ve BE PR #37'ye iki inceleme yorumu tamamlandı.
-- **Açık uyumsuzluk:** Güncel BE kodunun tarih formülü ile referans CSV'nin 150 satırından **103'ünün tarihi farklıdır**. Bu yüzden referans CSV'nin güncel betikle birebir üretimi doğrulanmış değildir. BE düzeltmesinden sonra ayrı çıktı dosyasıyla SHA ve analiz metrikleri yeniden kontrol edilmelidir.
+- **Güncel DQ durumu (2026-11-08):** Önceki sürümdeki 103/150 tarih uyuşmazlığı artık güncel açık hata değildir. Kullanıcının PowerShell testinde referans CSV ile yeniden üretilen 150 satırın UTF-8 metin içeriği eşleşti; 300 kayıt ve özel tarih aralığı testi geçti. `bf040ac` sonrası aynı başlangıç/bitiş tarihiyle 10/10 kayıt doğru tarihte üretildi. Ancak SHA-256 dosya hash'leri farklı çıktı; bayt düzeyinde eşitlik henüz doğrulanmadı. Son sürümde ters tarih aralığı ve farklı seed CLI testleri ayrıca tamamlanabilir. BE kodu ve referans CSV değiştirilmemiştir.
 
 İlgili görevler: #25 (şema), #27 (analiz), #29 (test); BE bağımlılığı: #26.
