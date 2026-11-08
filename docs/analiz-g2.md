@@ -10,7 +10,7 @@
 - Veri sözlüğü: `docs/veri-sozlugu.md`
 - Hesaplama: CSV'deki `toplam_tutar` değerleri toplandı; ortalama işlem tutarı toplam gelirin satır sayısına bölünmesiyle hesaplandı. Her satır bir satış işlemi sayıldı.
 - Veri kontrolü: satış kimlikleri benzersiz; satır tutarları `adet × birim_fiyat` hesabıyla uyumlu (0,01 TL tolerans).
-- **Yeniden üretilebilirlik uyarısı (8 Kasım 2026):** Bu rapor GitHub `main` dalındaki, blob SHA'sı yukarıda belirtilen **mevcut CSV sürümünün** analizidir. CSV'de 150 kayıt, 90 farklı tarih ve **2026-01-01–2026-03-31** aralığı doğrulandı. Buna karşılık `src/simulasyon_g2.py` içindeki `pd.date_range(start=baslangic_tarihi, periods=kayit_sayisi, freq="D")` ifadesi varsayılan 150 kayıt için **2026-01-01–2026-05-30** tarihlerini üretir. Bu nedenle mevcut betik, rapordaki CSV'nin tarih dağılımını birebir yeniden üretmez. BE ekibinin tarih üretim kuralını ve CSV üretim sürecini eşitlemesi gerekir; CSV yeniden oluşturulursa blob SHA ve tüm analiz metrikleri tekrar doğrulanmalıdır.
+- **Yeniden üretilebilirlik kontrolü (8 Kasım 2026, güncel BE sürümü):** `src/simulasyon_g2.py` artık `pd.date_range(start=baslangic_tarihi, end=bitis_tarihi, periods=kayit_sayisi)` kullanıyor ve varsayılan bitiş tarihi **2026-03-31**. Böylece önceki **2026-05-30** bitiş hatası giderildi. Ancak **tarih aralığının aynı olması, CSV'nin birebir aynı üretildiğini kanıtlamaz**: mevcut CSV'nin ilk tarihleri `2026-01-01, 2026-01-01, 2026-01-02, 2026-01-03` iken güncel betiğin eşit aralıklı ilk tarihleri `2026-01-01, 2026-01-01, 2026-01-02, 2026-01-02` olur. Dolayısıyla tarih dağılımı farklıdır; varsayılan betik çalıştırılarak mevcut CSV'nin üzerine yazılmamalıdır. BE ekibi referans CSV'nin üretim kuralını netleştirmeli, ardından yeniden üretim ve SHA eşitliği test edilmelidir.
 - **SHA kontrolü:** `924d744b35ed1cd97ca8dfc0bd4a7636a23e0df0` değeri 8 Kasım 2026 tarihinde `main` dalındaki `data/perakende-satislari-g2.csv` dosyasının Git blob SHA değeriyle eşleşti. Bu bir CSV içerik sürümü referansıdır; dosya değişirse değişebilir.
 - **Test kapsamı:** #29 kapsamında kullanıcının bildirdiği Python fonksiyonu, farklı kayıt sayısı/seed ve CSV tekrarlanabilirlik testleri kaydedildi; bu testler mevcut CSV ile güncel betiğin **birebir aynı dosyayı ürettiğini kanıtlamaz**.
 
@@ -61,6 +61,7 @@ Kategori ve mağaza gelirlerinin yanında **işlem sayısı, satılan adet ve or
 - [x] Üç bulgu ve uygulanabilir eylem önerisi yazıldı
 - [x] #29 kapsamındaki kullanıcı tarafından bildirilen simülasyon/CSV testleri ve BE PR inceleme yorumları kaydedildi
 - [x] PR #34 `main` dalına birleştirildi (merge commit: `ad381688ee85d54940b5e17c7b947a1212909666`)
-- [ ] BE: Güncel simülasyon betiğinin tarih üretim kuralı ile mevcut CSV'nin 90 günlük tarih aralığı eşitlenecek; ardından CSV SHA ve metrikler yeniden doğrulanacak
+- [x] BE: Güncel betiğin varsayılan bitiş tarihi 2026-03-31 olarak düzeltildi
+- [ ] BE/DQ: Betiğin tarih dağılımı referans CSV ile eşitlenecek, yeniden üretim ve SHA doğrulaması yapılacak; veri değişirse M1–M5 tekrar hesaplanacak
 
 İlgili görevler: #27 (analiz), #25 (şema), #29 (test).
