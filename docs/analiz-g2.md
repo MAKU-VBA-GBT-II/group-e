@@ -10,7 +10,7 @@
 - Veri sözlüğü: `docs/veri-sozlugu.md`
 - Hesaplama: CSV'deki `toplam_tutar` değerleri toplandı; ortalama işlem tutarı toplam gelirin satır sayısına bölünmesiyle hesaplandı. Her satır bir satış işlemi sayıldı.
 - Veri kontrolü: satış kimlikleri benzersiz; satır tutarları `adet × birim_fiyat` hesabıyla uyumlu (0,01 TL tolerans).
-- **Yeniden üretilebilirlik kontrolü (8 Kasım 2026, güncel BE sürümü):** `src/simulasyon_g2.py` artık `pd.date_range(start=baslangic_tarihi, end=bitis_tarihi, periods=kayit_sayisi)` kullanıyor ve varsayılan bitiş tarihi **2026-03-31**. Böylece önceki **2026-05-30** bitiş hatası giderildi. Ancak **tarih aralığının aynı olması, CSV'nin birebir aynı üretildiğini kanıtlamaz**: mevcut CSV'nin ilk tarihleri `2026-01-01, 2026-01-01, 2026-01-02, 2026-01-03` iken güncel betiğin eşit aralıklı ilk tarihleri `2026-01-01, 2026-01-01, 2026-01-02, 2026-01-02` olur. Dolayısıyla tarih dağılımı farklıdır; varsayılan betik çalıştırılarak mevcut CSV'nin üzerine yazılmamalıdır. BE ekibi referans CSV'nin üretim kuralını netleştirmeli, ardından yeniden üretim ve SHA eşitliği test edilmelidir.
+- **Güncel BE kodu / referans CSV karşılaştırması (2026-11-08):** `src/simulasyon_g2.py` (Git blob `6368ee0ef2f18015adcec2d9181f0ca692098c1c`) artık `pd.date_range(start=baslangic_tarihi, end=bitis_tarihi, periods=kayit_sayisi).strftime("%Y-%m-%d")` kullanıyor; CLI'da `--kayit-sayisi`, `--baslangic-tarihi`, `--bitis-tarihi`, `--seed`, `--cikti` seçenekleri mevcut. Varsayılan 150 kayıt ve 2026-01-01–2026-03-31 için kodun tarih dizisi hesaplanıp mevcut CSV ile karşılaştırıldı: **150 satırın 103'ünde tarih farklı** (ör. SAT-0004: kodda 2026-01-02, CSV'de 2026-01-03). Dolayısıyla referans CSV güncel betikten **birebir yeniden üretilemez**. Bu, kodun tarih formülünden türetilen statik karşılaştırmadır; Python betiğiyle yeni CSV üretilip dosya hash'i karşılaştırılmadı. Referans CSV'ye dokunulmadı; BE ekibi tarih üretim kuralını netleştirmeden varsayılan çıktı yoluyla çalıştırıp CSV'nin üzerine yazılmamalıdır.
 - **SHA kontrolü:** `924d744b35ed1cd97ca8dfc0bd4a7636a23e0df0` değeri 8 Kasım 2026 tarihinde `main` dalındaki `data/perakende-satislari-g2.csv` dosyasının Git blob SHA değeriyle eşleşti. Bu bir CSV içerik sürümü referansıdır; dosya değişirse değişebilir.
 - **Test kapsamı:** #29 kapsamında kullanıcının bildirdiği Python fonksiyonu, farklı kayıt sayısı/seed ve CSV tekrarlanabilirlik testleri kaydedildi; bu testler mevcut CSV ile güncel betiğin **birebir aynı dosyayı ürettiğini kanıtlamaz**.
 
@@ -62,6 +62,6 @@ Kategori ve mağaza gelirlerinin yanında **işlem sayısı, satılan adet ve or
 - [x] #29 kapsamındaki kullanıcı tarafından bildirilen simülasyon/CSV testleri ve BE PR inceleme yorumları kaydedildi
 - [x] PR #34 `main` dalına birleştirildi (merge commit: `ad381688ee85d54940b5e17c7b947a1212909666`)
 - [x] BE: Güncel betiğin varsayılan bitiş tarihi 2026-03-31 olarak düzeltildi
-- [ ] BE/DQ: Betiğin tarih dağılımı referans CSV ile eşitlenecek, yeniden üretim ve SHA doğrulaması yapılacak; veri değişirse M1–M5 tekrar hesaplanacak
+- [ ] BE/DQ: 103/150 tarih uyuşmazlığı çözülecek; ardından güvenli ayrı çıktı yolunda yeniden üretim, dosya hash'i ve gerekiyorsa M1–M5 doğrulanacak
 
 İlgili görevler: #27 (analiz), #25 (şema), #29 (test).
