@@ -73,7 +73,7 @@ def csv_kaydet(dosya_yolu: Path, veriler: list[dict]) -> None:
     ]
     dosya_yolu.parent.mkdir(parents=True, exist_ok=True)
     with open(dosya_yolu, mode="w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=alanlar)
+        writer = csv.DictWriter(f, fieldnames=alanlar, lineterminator="\n")
         writer.writeheader()
         writer.writerows(veriler)
 
