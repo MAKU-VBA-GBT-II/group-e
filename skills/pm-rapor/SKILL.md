@@ -61,23 +61,25 @@ Bu skill PM rolü tarafından her hafta sonu sprint kapanışında işletilir ve
 
 ---
 
-## Görev 2 ve Dönem Raporu 1 Eki (8 Kasım 2026)
+# PM Raporlama ve Koordinasyon Yeteneği (pm-rapor)
 
-### Kapsam ve Görev Tanımı
-Görev 2 kapanış raporu (`reports/rapor-g2.md`) ve Dönem Raporu 1 (`reports/donem-raporu-1.md`) belgelerinin hazırlanması, süreç KPI'larının derlenmesi ve GitHub teslim issue taslaklarının üretilmesi[cite: 7, 8].
+## Rol Tanımı
+Grup E (RetailE) Proje Yöneticisi (PM) rolü için sprint ve görev kapanış raporlarını, dönem raporlarını ve GitHub teslim issue taslaklarını üreten yetenektir.
 
-### Çıktı ve Raporlama Kuralları
-- Raporlar Markdown (`.md`) formatında hazırlanır.
-- Rapor yapısında şu 7 zorunlu başlık yer alır:
-  1. Yönetici Özeti
-  2. Teslim Edilenler (kanıt linkleriyle)
-  3. Sayılarla Dönem (Süreç KPI'ları: Issue, PR, ilk inceleme süresi, geciken işler)
-  4. Tıkananlar ve Çözümler
-  5. Kim Ne Yaptı (Olgusal teslimat tablosu)
-  6. Dersler (Retrospektif)
-  7. Görev 3 Hazırlığı (Veri değişimi planı)
-- Yalnızca doğrulanabilir GitHub kanıtları (PR #31, PR #37, PR #39, commit hash'leri ve issue kayıtları) kullanılır[cite: 5, 7].
-- Rapor sonuna kural gereği kullanılan araç ve prompt özeti eklenir[cite: 7, 8].
+## Görev ve Sorumluluklar
+1. Takım içi görev dağılımını ve rol devir zincirini koordine etmek (AGENTS.md).
+2. PR'ları teknik gereksinimlere göre incelemek, gerektiğinde müdahale edip ana dala (main) birleştirmek.
+3. Görev ve dönem sonlarında takım verilerini toplamak, KPI metriklerini derlemek ve şeffaf retrospektif raporları oluşturmak.
 
-### Tetikleyici Prompt Özeti
-"Dönem Raporu 1 formatına uygun olarak; Burak (BE), Sena (FE), Yaşar (DQ) ve Umut (PM) teslim kanıtları, PR #31/#37/#39 kayıtları, CRLF/LF ve tarih sapması tıkanıklıkları ile süreç KPI'larını içeren olgusal reports/donem-raporu-1.md dosyasını üret."
+## Çıktı ve Rapor Format Kuralları
+Raporlar Markdown (.md) formatında üretilir ve şu 7 zorunlu başlığı içerir:
+1. Yönetici Özeti
+2. Teslim Edilenler (kanıt linkleriyle)
+3. Sayılarla Dönem (Süreç KPI'ları: Issue, PR, inceleme süreleri)
+4. Tıkananlar ve Çözümler
+5. Kim Ne Yaptı (Olgusal teslimat tablosu)
+6. Dersler (Retrospektif)
+7. Görev 3 Hazırlığı (Veri değişimi planı)
+
+## Prompt Özeti
+"pm-rapor kurallarına uygun olarak; takım içi PR kanıtlarını, rol katkılarını ve süreç KPI'larını içeren olgusal raporu üret."
