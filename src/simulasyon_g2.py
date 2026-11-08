@@ -79,7 +79,6 @@ def veri_uret(
 ) -> pd.DataFrame:
     random.seed(seed)
 
-    # Orijinal CSV'yi üreten pandas zaman aralığı yöntemi
     tarihler = pd.date_range(
         start=baslangic_tarihi, end=bitis_tarihi, periods=kayit_sayisi
     ).strftime("%Y-%m-%d")
