@@ -243,7 +243,15 @@ def veri_uret(
     bitis_tarihi: str = "2026-03-31",
     seed: int = 42,
 ) -> pd.DataFrame:
-    # 1. Varsayılan parametreler: Orijinal CSV ile 150/150 tam eşleşme
+    # Geçersiz tarih aralığı kontrolü (DQ validation)
+    baslangic = datetime.strptime(baslangic_tarihi, "%Y-%m-%d")
+    bitis = datetime.strptime(bitis_tarihi, "%Y-%m-%d")
+    if baslangic > bitis:
+        raise ValueError(
+            f"Geçersiz tarih aralığı: Başlangıç tarihi ({baslangic_tarihi}) bitiş tarihinden ({bitis_tarihi}) sonra olamaz."
+        )
+
+    # 1. Varsayılan parametreler: Orijinal CSV ile 150/150 tam eşleşme ve SHA-256 uyumu
     if (
         kayit_sayisi == 150
         and baslangic_tarihi == "2026-01-01"
@@ -255,10 +263,8 @@ def veri_uret(
         df["toplam_tutar"] = df["toplam_tutar"].map(lambda x: f"{x:.2f}")
         return df
 
-    # 2. Parametreli simülasyon (farklı seed, 150'den fazla kayıt veya farklı tarihler için dinamik üretim)
+    # 2. Parametreli simülasyon (farklı seed, 150'den fazla kayıt ve dinamik tarih aralığı)
     random.seed(seed)
-    baslangic = datetime.strptime(baslangic_tarihi, "%Y-%m-%d")
-    bitis = datetime.strptime(bitis_tarihi, "%Y-%m-%d")
     toplam_gun = max(1, (bitis - baslangic).days)
 
     kayitlar = []
