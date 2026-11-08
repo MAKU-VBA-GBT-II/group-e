@@ -12,7 +12,7 @@ Bu belge, RetailE perakende mini veri kümesinin alanlarını ve DQ rolünün he
 - G2 kayıt sayısı: 150
 - G2 alan sayısı: 8
 - G2 üretim betiği: `src/simulasyon_g2.py`
-- Üretim fonksiyonu parametreleri: `kayit_sayisi` (varsayılan 150) ve `seed` (varsayılan 42). Ana daldaki `main()` fonksiyonu bu değerlerle çağrı yapmaktadır.
+- Üretim fonksiyonu parametreleri: `kayit_sayisi` (150), `baslangic_tarihi` (2026-01-01), `bitis_tarihi` (2026-03-31), `seed` (42). `main()` bu değerleri CLI'dan alır; `--cikti` ile dosya yolu değiştirilebilir.
 - Tarih aralığı (betikte): 2026-01-01–2026-03-31.
 
 ## 3. Alan sözlüğü (G2 şeması)
@@ -51,8 +51,10 @@ Not: Her CSV satırı bir satış işlemi kabul edilmiştir; aynı sepetin birde
 ## 6. G2 üretim parametreleri ve sonraki kontroller
 - `kayit_sayisi`: Üretilecek satış satırı sayısını belirler; `satis_id` sayısını ve oluşturulan tarih dizisini etkiler.
 - `seed`: Rastgele ürün, kategori, adet ve mağaza seçimlerinin tekrarlanabilirliğini kontrol eder.
-- G2 dosya yolu ve sütun sayısı ana daldaki CSV üzerinden kontrol edildi. Alan tipleri, tutar tutarlılığı, benzersizlik ve parametre etkisi ayrıca G2 testlerinde çalıştırılıp sonuçlandırılmalıdır.
-- M1–M5'i G2 verisiyle hesaplayıp `docs/analiz-g2.md` dosyasına gerçek sonuç ve bulguları ekle.
-- `tests/test-cases.md` içindeki G2 testlerini çalıştır ve BE PR'ına iki somut inceleme yorumu yaz.
+- `baslangic_tarihi` / `bitis_tarihi`: Üretilecek tarih aralığını belirler; güncel kodda 150 kayıt bu aralığa `pd.date_range(..., periods=kayit_sayisi)` ile dağıtılır.
+- `--cikti`: CLI üzerinden CSV çıktı dosyasının yolunu belirler; doğrulama için mevcut referans CSV'nin üzerine yazmadan ayrı dosya kullanılmalıdır.
+- CLI seçenekleri: `--kayit-sayisi`, `--baslangic-tarihi`, `--bitis-tarihi`, `--seed`, `--cikti`.
+- G2 CSV'nin 150 satırı, 8 sütunu, alan tipleri, tutar tutarlılığı ve benzersiz satış ID'leri kontrol edildi; M1–M5 hesaplanıp `docs/analiz-g2.md` dosyasına yazıldı. #29 kapsamında test senaryoları ve BE PR #37'ye iki inceleme yorumu tamamlandı.
+- **Açık uyumsuzluk:** Güncel BE kodunun tarih formülü ile referans CSV'nin 150 satırından **103'ünün tarihi farklıdır**. Bu yüzden referans CSV'nin güncel betikle birebir üretimi doğrulanmış değildir. BE düzeltmesinden sonra ayrı çıktı dosyasıyla SHA ve analiz metrikleri yeniden kontrol edilmelidir.
 
 İlgili görevler: #25 (şema), #27 (analiz), #29 (test); BE bağımlılığı: #26.
