@@ -8,22 +8,26 @@
 | TC-04 | Veri tipleri ve aralık kontrolü | `data/perakende-satislari.csv` | 1. Sütun tiplerini incele. 2. Negatif değer var mı bak. | Veri tiplerinin uygun ve aralıkların mantıklı olması |
 | TC-05 | Kategori değerleri kontrolü | Kategorik sütunlar | 1. Benzersiz değerleri listele. | Beklenen kategori kümesi dışında değer olmaması |
 
-## G2 — Parametreli simülasyon test planı (Issue #29)
+## G2 — Parametreli simülasyon test sonuçları (Issue #29)
 
-**Durum:** Testler hazırlanmıştır; BE G2 simülasyon kodu ve çıktı dosyası henüz ana dalda doğrulanmadığı için gerçekleşen sonuçlar beklemededir. Test girdileri ve dosya yolu BE PR'ına göre kesinleştirilecektir. G1 testleri yukarıda korunmuştur.
+**İnceleme tarihi:** 2026-11-08. **Kaynak:** `main` dalındaki `data/perakende-satislari-g2.csv` (blob `924d744b35ed1cd97ca8dfc0bd4a7636a23e0df0`) ve `src/simulasyon_g2.py` (blob `ec691c697a501cf027327c66addee5a3814b508d`). G1 testleri yukarıda korunmuştur.
 
-| Test ID | Senaryo | Uygulama adımları | Beklenen sonuç | Gerçekleşen sonuç | Durum |
+**Yöntem ve sınır:** GitHub'dan okunan gerçek CSV'nin 150 satırı bağımsız olarak ayrıştırılıp şema, kimlik, tarih, sayı, tutar ve metrik kontrolleri çalıştırıldı. Python üretim betiği bu ortamda çalıştırılamadığı için betik çalıştırma, iki parametrenin farklı değerlerle denenmesi ve aynı seed ile iki çıktı hash'inin karşılaştırılması **çalıştırılmış gibi gösterilmemiştir**. PR #37'nin diff'i ile mevcut `main` betiği ayrıca karşılaştırıldı.
+
+| Test ID | Senaryo | Uygulama / girdi | Beklenen sonuç | Gerçekleşen sonuç | Durum |
 | --- | --- | --- | --- | --- | --- |
-| G2-TC-01 | Simülasyonun çalışması | BE'nin G2 betiğini belgelenen komutla çalıştır. | Hatasız çalışır ve çıktı üretir. | BE PR'ı bekleniyor | Beklemede |
-| G2-TC-02 | CSV şema kontrolü | Üretilen CSV başlıklarını `docs/veri-sozlugu.md` ile karşılaştır. | Zorunlu sütunlar eksiksizdir, dosya okunabilir. | BE PR'ı bekleniyor | Beklemede |
-| G2-TC-03 | En az iki ayarlanabilir parametre | BE kodunda en az iki parametreyi tespit et; her birini ayrı ayrı değiştirip çıktıyı karşılaştır. | İki parametre gerçekten değiştirilebilir ve belgelenen etkiyi gösterir. | BE PR'ı bekleniyor | Beklemede |
-| G2-TC-04 | Veri tipleri ve iş kuralları | Sayısal alanları, tarihleri, boş ve yinelenen kimlikleri, `adet × birim_fiyat` tutarlılığını denetle. | Geçerli türler, pozitif miktar, geçerli tarihler, tutarlı tutarlar ve benzersiz kimlikler. | BE PR'ı bekleniyor | Beklemede |
-| G2-TC-05 | Tekrarlanabilirlik | Aynı parametreler ve aynı tohumla simülasyonu iki kez çalıştır; çıktıları karşılaştır. | Simülasyon deterministik olarak tasarlandıysa iki çıktı aynıdır; değilse tohum politikası açıkça belgelenmiştir. | BE PR'ı bekleniyor | Beklemede |
-| G2-TC-06 | DQ metrik doğrulaması | G2 CSV üzerinden M1–M5'i bağımsız hesapla ve `docs/analiz-g2.md` ile karşılaştır. | Beş metriğin sonuçları raporla eşleşir. | BE verisi ve DQ analizi bekleniyor | Beklemede |
+| G2-TC-01 | Simülasyonun çalışması | `python src/simulasyon_g2.py` | Betik hatasız çalışır, CSV üretir. | Ana dalda CSV mevcut; Python betiği bu inceleme ortamında fiilen çalıştırılamadı. | Çalıştırılmadı |
+| G2-TC-02 | CSV şema kontrolü | `data/perakende-satislari-g2.csv` | CSV okunur; 8 zorunlu sütun eksiksizdir. | 150 veri satırı, 8 sütun; başlıklar `satis_id,tarih,urun,kategori,adet,birim_fiyat,toplam_tutar,magaza` ile tam eşleşiyor. | Geçti |
+| G2-TC-03 | En az iki ayarlanabilir parametre | `src/simulasyon_g2.py`, PR #37 | İki parametre değiştirilebilir ve çıktı etkisi gözlenir. | Mevcut ana dalda `veri_uret(kayit_sayisi=150, seed=42)` fonksiyon parametreleri var; fakat `main()` bunları sabit değerle çağırıyor ve CLI `argparse` yok. PR #37 diff'inde CLI seçenekleri var, ana daldaki kodla uyumsuz. Değişik parametrelerle fiili çalıştırma yapılmadı. | Doğrulama gerekli / sürüm uyumsuzluğu |
+| G2-TC-04 | Veri tipleri ve iş kuralları | CSV'nin 150 satırı | Geçerli tarihler, pozitif tam sayı adet, negatif olmayan fiyat ve tutar, boş/tekrarlı ID olmaması; `adet × birim_fiyat` tutarlılığı. | 150/150 satırda sayısal ve tarih biçimi kontrolleri başarılı; 150 benzersiz ID; 150/150 tutar çarpımı 0,01 TL toleransta uyumlu. Tarihler 2026-01-01–2026-03-31. | Geçti (mevcut CSV) |
+| G2-TC-05 | Tekrarlanabilirlik | Aynı `kayit_sayisi` ve `seed` ile iki Python çalıştırması | Aynı girdiler aynı CSV'yi üretir. | Kodda `random.seed(seed)` var; ancak iki gerçek Python çalıştırması ve çıktı hash karşılaştırması yapılamadı. | Çalıştırılmadı |
+| G2-TC-06 | DQ metrik doğrulaması | CSV ve `docs/analiz-g2.md` | M1–M5 bağımsız hesapla raporla eşleşir. | M1 = **140.131,25 TL**; M2 = **934,21 TL/işlem**; M3 = **305 adet**; M4: Giyim 40.680,00; Elektronik 37.235,00; Ev ve Yaşam 32.437,00; Kozmetik 19.564,75; Gıda 10.214,50 TL. M5: Antalya 41.819,00; Burdur 35.034,75; Konya Merkez 32.417,00; Isparta 30.860,50 TL. Analiz raporuyla eşleşiyor. | Geçti |
 
-### BE Pull Request incelemesi (zorunlu 2 yorum)
-- **Yorum 1 — Parametreler:** Kodun hangi iki parametreyi kabul ettiğini, varsayılanlarını ve değiştirilince çıktının nasıl etkilendiğini gerçek satırlara bakarak yorumla.
-- **Yorum 2 — Veri kalitesi:** Üretilen verinin şemaya uygunluğu ve doğrulanan iş kurallarına dair gerçek kod/satır üzerinde yorum bırak.
-- Bu iki yorum, BE PR'ı açılmadan gönderilmiş sayılmaz; gerçek inceleme yapıldıktan sonra PR bağlantıları ve test sonuçları bu bölüme işlenmelidir.
+### BE PR incelemesi — iki gönderilmiş satır içi yorum
+
+1. **Parametre / sürüm uyuşmazlığı:** [PR #37 inceleme yorumu 1](https://github.com/MAKU-VBA-GBT-II/group-e/pull/37#discussion_r4506326676). PR'da bulunan CLI parametrelerinin `main` sürümünde bulunmaması ve parametre değişim testinin gerekliliği belirtildi.
+2. **Veri kalitesi / sürüm eşleştirme:** [PR #37 inceleme yorumu 2](https://github.com/MAKU-VBA-GBT-II/group-e/pull/37#discussion_r4506326678). CSV kalite kontrolleri ve PR'daki CSV ile `main` CSV farkının çözülmesi istendi.
+
+**Açık kalan doğrulamalar:** Betiği Python ortamında iki farklı parametre setiyle çalıştırmak, aynı seed ile iki çıktının hash'ini karşılaştırmak ve PR #37 ile `main` arasındaki veri/kod sürüm farkını BE ekibiyle netleştirmek. Bu maddeler tamamlanmadan tüm G2 testleri geçti denmemelidir.
 
 İlgili görevler: #26 (BE), #29 (DQ test), #25 (şema), #27 (analiz).
