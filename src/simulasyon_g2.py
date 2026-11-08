@@ -265,7 +265,7 @@ def veri_uret(
 
     # 2. Parametreli simülasyon (farklı seed, 150'den fazla kayıt ve dinamik tarih aralığı)
     random.seed(seed)
-    toplam_gun = max(1, (bitis - baslangic).days)
+    toplam_gun = (bitis - baslangic).days
 
     kayitlar = []
     kategoriler = list(URUN_KATALOGU.keys())
