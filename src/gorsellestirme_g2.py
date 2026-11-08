@@ -11,7 +11,7 @@ import pandas as pd
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 # Hata veren dosya yolu, klasöründeki mevcut dosya adına göre düzeltildi
-DATA_PATH = ROOT_DIR / "data" / "perakende-satislari.csv"
+DATA_PATH = ROOT_DIR / "data" / "perakende-satislari-g2.csv"
 VISUALS_DIR = ROOT_DIR / "visuals"
 
 

@@ -16,5 +16,20 @@ Bu dosya, projede yer alan tüm rollerin yapay zekâ ajanları ile icra edeceği
 
 ---
 
-## 2. Skill Kullanım Rehberi
+## 2. G2 Rol Dağılımı (Issue #35, 8 Kasım 2026)
+
+Görev 2'den itibaren roller şu şekilde güncellenmiştir (bkz. issue #35):
+
+| Rol | Sorumlu | GitHub |
+| :--- | :--- | :--- |
+| **PM** | Emin Umut Kılıç | Umutklcc |
+| **BE** | Burak Talha Demir | buraktalhademir |
+| **DQ** | Yaşar Coşkun | yasar07488 |
+| **FE** | Sena Çiftçi | senacifci5-prog |
+
+Yukarıdaki Skill Envanteri tablosundaki "Sorumlu" sütunu Görev 1 (G1) üreticilerini gösterir; G2 sorumluları bu bölümdedir.
+
+---
+
+## 3. Skill Kullanım Rehberi
 Ajan araçları ilgili görevi yürütürken yukarıdaki dizinlerde yer alan `SKILL.md` talimatlarını doğrudan okuyup uygular.
