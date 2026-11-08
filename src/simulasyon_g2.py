@@ -4,7 +4,6 @@ G2 şemasına ve DQ kurallarına tam uyumlu sentetik veri üretici.
 """
 
 import argparse
-from datetime import datetime, timedelta
 from pathlib import Path
 import random
 import pandas as pd
@@ -80,23 +79,17 @@ def veri_uret(
 ) -> pd.DataFrame:
     random.seed(seed)
 
-    baslangic = datetime.strptime(baslangic_tarihi, "%Y-%m-%d")
-    bitis = datetime.strptime(bitis_tarihi, "%Y-%m-%d")
-    toplam_gun = (bitis - baslangic).days
+    # Orijinal CSV'yi üreten pandas zaman aralığı yöntemi
+    tarihler = pd.date_range(
+        start=baslangic_tarihi, end=bitis_tarihi, periods=kayit_sayisi
+    ).strftime("%Y-%m-%d")
 
     kayitlar = []
     kategoriler = list(URUN_KATALOGU.keys())
 
     for i in range(kayit_sayisi):
         satis_id = f"SAT-{i+1:04d}"
-
-        if kayit_sayisi > 1:
-            gun_ofset = int(round(i * toplam_gun / (kayit_sayisi - 1)))
-        else:
-            gun_ofset = 0
-
-        tarih = (baslangic + timedelta(days=gun_ofset)).strftime("%Y-%m-%d")
-
+        tarih = tarihler[i]
         kategori = random.choice(kategoriler)
         urun, birim_fiyat = random.choice(URUN_KATALOGU[kategori])
         adet = random.randint(1, 5)
