@@ -10,9 +10,10 @@
 - Veri sözlüğü: `docs/veri-sozlugu.md`
 - Hesaplama: CSV'deki `toplam_tutar` değerleri toplandı; ortalama işlem tutarı toplam gelirin satır sayısına bölünmesiyle hesaplandı. Her satır bir satış işlemi sayıldı.
 - Veri kontrolü: satış kimlikleri benzersiz; satır tutarları `adet × birim_fiyat` hesabıyla uyumlu (0,01 TL tolerans).
-- **Güncel BE kodu / referans CSV karşılaştırması (2026-11-08):** `src/simulasyon_g2.py` (Git blob `6368ee0ef2f18015adcec2d9181f0ca692098c1c`) artık `pd.date_range(start=baslangic_tarihi, end=bitis_tarihi, periods=kayit_sayisi).strftime("%Y-%m-%d")` kullanıyor; CLI'da `--kayit-sayisi`, `--baslangic-tarihi`, `--bitis-tarihi`, `--seed`, `--cikti` seçenekleri mevcut. Varsayılan 150 kayıt ve 2026-01-01–2026-03-31 için kodun tarih dizisi hesaplanıp mevcut CSV ile karşılaştırıldı: **150 satırın 103'ünde tarih farklı** (ör. SAT-0004: kodda 2026-01-02, CSV'de 2026-01-03). Dolayısıyla referans CSV güncel betikten **birebir yeniden üretilemez**. Bu, kodun tarih formülünden türetilen statik karşılaştırmadır; Python betiğiyle yeni CSV üretilip dosya hash'i karşılaştırılmadı. Referans CSV'ye dokunulmadı; BE ekibi tarih üretim kuralını netleştirmeden varsayılan çıktı yoluyla çalıştırıp CSV'nin üzerine yazılmamalıdır.
-- **SHA kontrolü:** `924d744b35ed1cd97ca8dfc0bd4a7636a23e0df0` değeri 8 Kasım 2026 tarihinde `main` dalındaki `data/perakende-satislari-g2.csv` dosyasının Git blob SHA değeriyle eşleşti. Bu bir CSV içerik sürümü referansıdır; dosya değişirse değişebilir.
-- **Test kapsamı:** #29 kapsamında kullanıcının bildirdiği Python fonksiyonu, farklı kayıt sayısı/seed ve CSV tekrarlanabilirlik testleri kaydedildi; bu testler mevcut CSV ile güncel betiğin **birebir aynı dosyayı ürettiğini kanıtlamaz**.
+- **Güncel BE kodu / referans CSV karşılaştırması (2026-11-08):** Umut'un [bf040ac](https://github.com/MAKU-VBA-GBT-II/group-e/commit/bf040ac458fffffb920b5e53495940cacb915aab) düzeltmesinden sonraki `src/simulasyon_g2.py` (Git blob `bc3fd2fc63ed3fac9433a3e2d2498f47588b7966`) varsayılan 150 kayıt/2026-01-01–2026-03-31/seed 42 için kod içindeki referans veriyi döndürür. Diğer parametrelerde `random.seed` ve `datetime/timedelta` kullanılarak dinamik veri üretilir. Önceki `pd.date_range` sürümündeki 103/150 tarih uyuşmazlığı artık güncel bir açık hata değildir.
+- **DQ çalıştırma kanıtı:** Kullanıcı PowerShell'de 300 kayıt ve 2026-02-01–2026-02-28 tarih aralığını doğruladı. `bf040ac` sonrasında başlangıç ve bitiş tarihi 2026-02-01 seçilerek üretilen 10 kaydın tamamı aynı tarihte çıktı. Varsayılan 150 kayıt için UTF-8 satır karşılaştırmasında fark görülmedi; **SHA-256 eşitliği ise `False`** çıktı. Bayt düzeyinde farkın nedeni henüz kesinleştirilmedi; satır eşitliği ile dosya hash eşitliği karıştırılmamalıdır.
+- **Kaynak sürümü:** Referans CSV Git blob SHA `924d744b35ed1cd97ca8dfc0bd4a7636a23e0df0` değerindedir. Bu değer Git blob kimliğidir, PowerShell SHA-256 sonucu değildir. Test dosyaları ayrı `--cikti` yollarında üretildi; BE kodu ve referans CSV bu DQ belge güncellemesinde değiştirilmedi.
+- **Test sınırları:** Ters tarih aralığını reddetme kontrolü kodda vardır; son sürümde CLI üzerinden çalıştırma kanıtı yoktur. Farklı seed çıktılarının son sürümde yeniden karşılaştırılması ve SHA-256 farkının açıklığa kavuşturulması takip maddeleridir.
 
 ## Beş metrik
 
@@ -62,6 +63,8 @@ Kategori ve mağaza gelirlerinin yanında **işlem sayısı, satılan adet ve or
 - [x] #29 kapsamındaki kullanıcı tarafından bildirilen simülasyon/CSV testleri ve BE PR inceleme yorumları kaydedildi
 - [x] PR #34 `main` dalına birleştirildi (merge commit: `ad381688ee85d54940b5e17c7b947a1212909666`)
 - [x] BE: Güncel betiğin varsayılan bitiş tarihi 2026-03-31 olarak düzeltildi
-- [ ] BE/DQ: 103/150 tarih uyuşmazlığı çözülecek; ardından güvenli ayrı çıktı yolunda yeniden üretim, dosya hash'i ve gerekiyorsa M1–M5 doğrulanacak
+- [x] BE/DQ: Önceki tarih uyuşmazlığı ve aynı gün sınır durumu düzeltildi; 10/10 aynı gün testi geçti.
+- [x] DQ: 300 kayıt ve özel tarih aralığı CLI testi geçti; varsayılan CSV satır içeriği eşleşti.
+- [ ] DQ: SHA-256 bayt farkının nedeni ve son sürümde ters tarih aralığı/farklı seed CLI testleri ayrıca doğrulanacak.
 
 İlgili görevler: #27 (analiz), #25 (şema), #29 (test).
